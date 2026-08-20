@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Victor Ugbesia Coaching & Counseling: Engineered Guidance for Personal Transformation & Peak Life Optimization. World-class counseling for global clients.">
+    <meta name="theme-color" content="#0a0a0c">
+    <title>Victor Ugbesia Coaching & Counseling | Engineered Guidance</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0c;
+            --bg-secondary: #121216;
+            --bg-tertiary: #1a1a20;
+            --accent-gold: #D4AF37;
+            --accent-gold-dim: #b5952f;
+            --accent-blue: #00E5FF;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1aa;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.15);
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+        .text-gradient {
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 100px 0; position: relative; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+        .section-header h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 16px; }
+        .section-header p { color: var(--text-secondary); font-size: 1.125rem; }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.05em; color: var(--text-primary); text-decoration: none; text-transform: uppercase; }
+        .logo span { color: var(--accent-gold); }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: var(--transition-smooth); text-transform: uppercase; letter-spacing: 0.05em; }
+        .nav-links a:hover { color: var(--accent-gold); }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); cursor: pointer; }
+
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 16px 32px; font-size: 0.95rem; font-weight: 600; text-decoration: none;
+            border-radius: 4px; transition: var(--transition-smooth); cursor: pointer; border: none; letter-spacing: 0.02em;
+        }
+        .btn-primary { background: var(--accent-gold); color: var(--bg-primary); }
+        .btn-primary:hover { background: var(--accent-gold-dim); transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+        .btn-secondary { background: transparent; color: var(--text-primary); border: 1px solid var(--border-subtle); }
+        .btn-secondary:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 80px;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+        }
+        .hero-content { max-width: 900px; opacity: 0; transform: translateY(30px); animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 24px; }
+        .hero p { font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--text-secondary); margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .mission-text h3 { font-size: 2rem; margin-bottom: 24px; color: var(--accent-gold); }
+        .mission-text p { color: var(--text-secondary); margin-bottom: 20px; font-size: 1.05rem; }
+        .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 40px; }
+        .pillar-card { background: var(--bg-secondary); border: 1px solid var(--border-subtle); padding: 32px; border-radius: 8px; transition: var(--transition-smooth); }
+        .pillar-card:hover { border-color: var(--accent-gold); transform: translateY(-4px); }
+        .pillar-icon { width: 48px; height: 48px; margin-bottom: 20px; color: var(--accent-gold); }
+        .pillar-card h4 { font-size: 1.25rem; margin-bottom: 12px; }
+        .pillar-card p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        .offerings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
+        .offering-card { background: var(--bg-secondary); border: 1px solid var(--border-subtle); padding: 40px 32px; border-radius: 8px; position: relative; overflow: hidden; transition: var(--transition-smooth); }
+        .offering-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--accent-gold), transparent); opacity: 0; transition: var(--transition-smooth); }
+        .offering-card:hover { transform: translateY(-8px); border-color: rgba(212, 175, 55, 0.3); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+        .offering-card:hover::before { opacity: 1; }
+        .offering-card h3 { font-size: 1.5rem; margin-bottom: 16px; }
+        .offering-card p { color: var(--text-secondary); margin-bottom: 24px; }
+        .offering-list { list-style: none; }        .offering-list li { color: var(--text-secondary); padding: 8px 0; padding-left: 24px; position: relative; font-size: 0.95rem; }
+        .offering-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent-gold); }
+
+        .metrics { background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
+        .metric-item h3 { font-size: 3rem; color: var(--accent-gold); margin-bottom: 8px; font-weight: 700; }
+        .metric-item p { color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; }
+
+        .booking-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+        .booking-info h3 { font-size: 2rem; margin-bottom: 20px; }
+        .booking-info p { color: var(--text-secondary); margin-bottom: 32px; }
+        .whatsapp-cta {
+            display: flex; align-items: center; gap: 16px; background: rgba(37, 211, 102, 0.1);
+            border: 1px solid rgba(37, 211, 102, 0.3); padding: 24px; border-radius: 8px;
+            text-decoration: none; color: var(--text-primary); transition: var(--transition-smooth);
+        }
+        .whatsapp-cta:hover { background: rgba(37, 211, 102, 0.15); border-color: rgba(37, 211, 102, 0.5); }
+        .whatsapp-icon { width: 32px; height: 32px; color: #25D366; }
+
+        .booking-form { background: var(--bg-secondary); padding: 40px; border-radius: 8px; border: 1px solid var(--border-subtle); }
+        .form-group { margin-bottom: 24px; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 14px 16px; background: var(--bg-primary); border: 1px solid var(--border-subtle);
+            border-radius: 4px; color: var(--text-primary); font-family: inherit; font-size: 1rem; transition: var(--transition-smooth);
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-gold); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+
+        footer { background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); padding: 60px 0 30px; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; margin-bottom: 40px; }
+        .footer-brand { max-width: 300px; }
+        .footer-brand .logo { margin-bottom: 16px; display: inline-block; }
+        .footer-brand p { color: var(--text-secondary); font-size: 0.9rem; }
+        .footer-links { display: flex; gap: 32px; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: var(--transition-smooth); }
+        .footer-links a:hover { color: var(--accent-gold); }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid var(--border-subtle); color: var(--text-secondary); font-size: 0.85rem; }
+        .handle { color: var(--accent-gold); font-weight: 600; }
+
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 968px) {
+            .mission-grid, .booking-container { grid-template-columns: 1fr; gap: 40px; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+        }
+        @media (max-width: 640px) {            .hero-ctas { flex-direction: column; width: 100%; }
+            .btn { width: 100%; }
+            .section { padding: 60px 0; }
+            .booking-form { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Victor <span>Ugbesia</span></a>
+            <ul class="nav-links">
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#offerings">Offerings</a></li>
+                <li><a href="#metrics">Impact</a></li>
+                <li><a href="#booking">Book Session</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Transformative Counseling &<br><span class="text-gradient">Life Strategy for Everyone, Everywhere.</span></h1>
+            <p>Engineered guidance for personal transformation and peak life optimization. Structured breakthroughs for individuals across all backgrounds, professions, and walks of life globally.</p>
+            <div class="hero-ctas">
+                <a href="#booking" class="btn btn-primary">Book a Session</a>
+                <a href="#mission" class="btn btn-secondary">Discover the Approach</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission" class="section">
+        <div class="container">
+            <div class="mission-grid reveal">
+                <div class="mission-text">
+                    <h3>The Mission & Gift</h3>
+                    <p>Victor Ugbesia operates as a global counselor and strategist, equipping diverse individuals to navigate complex life challenges, achieve personal growth, and hit critical performance milestones.</p>
+                    <p>This is not generic advice. It is a structured, high-impact framework designed to dismantle limitations and build resilient, optimized life architectures regardless of your starting point.</p>
+                </div>
+                <div class="pillars">
+                    <div class="pillar-card">
+                        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">                            <circle cx="12" cy="12" r="10"></circle>
+                            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                        </svg>
+                        <h4>Clarity & Alignment</h4>
+                        <p>Eliminate noise. Define your true north and align daily actions with long-term vision.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        <h4>Strategic Resilience</h4>
+                        <p>Build emotional and operational fortitude to withstand pressure and adapt to change.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                        <h4>Life Optimization</h4>
+                        <p>Implement structural systems that compound productivity, health, and fulfillment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="offerings" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Core Advisory Offerings</h2>
+                <p>Precision-engineered frameworks tailored to your specific life phase and professional trajectory.</p>
+            </div>
+            <div class="offerings-grid reveal">
+                <div class="offering-card">
+                    <h3>Personal & Life Counseling</h3>
+                    <p>Navigate complex transitions with structured emotional and strategic clarity.</p>
+                    <ul class="offering-list">
+                        <li>Mindset recalibration</li>
+                        <li>Relationship & boundary architecture</li>
+                        <li>Purpose discovery & alignment</li>
+                    </ul>
+                </div>
+                <div class="offering-card">
+                    <h3>Career & Professional Strategy</h3>
+                    <p>Optimize your professional trajectory, leadership presence, and output.</p>
+                    <ul class="offering-list">
+                        <li>Executive decision-making frameworks</li>
+                        <li>Career pivot strategy</li>
+                        <li>Personal brand & influence optimization</li>                    </ul>
+                </div>
+                <div class="offering-card">
+                    <h3>High-Performance Life Coaching</h3>
+                    <p>Build the discipline, daily systems, and personal mastery required for elite outcomes.</p>
+                    <ul class="offering-list">
+                        <li>Habit architecture & system design</li>
+                        <li>Energy & focus management</li>
+                        <li>Accountability & milestone tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="metrics" class="section metrics">
+        <div class="container">
+            <div class="metrics-grid reveal">
+                <div class="metric-item">
+                    <h3 class="counter" data-target="100">0</h3>
+                    <p>% Personal Confidentiality</p>
+                </div>
+                <div class="metric-item">
+                    <h3 class="counter" data-target="50">0</h3>
+                    <p>+ Countries Served</p>
+                </div>
+                <div class="metric-item">
+                    <h3 class="counter" data-target="1000">0</h3>
+                    <p>+ Hours of Strategic Counseling</p>
+                </div>
+                <div class="metric-item">
+                    <h3 class="counter" data-target="98">0</h3>
+                    <p>% Client Retention Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Global Consultation & Booking</h2>
+                <p>Secure your session. All inquiries are handled with strict confidentiality and professional discretion.</p>
+            </div>
+            <div class="booking-container reveal">
+                <div class="booking-info">
+                    <h3>Initiate Your Transformation</h3>
+                    <p>Select your preferred method of contact. For immediate, direct communication, the WhatsApp Business channel is recommended for rapid scheduling and initial triage.</p>
+                    
+                    <a href="https://wa.me/2348127297983?text=Hello%20Victor,%20I%20am%20interested%20in%20booking%20a%20counseling%20session." target="_blank" class="whatsapp-cta">                        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        <div>
+                            <strong style="display: block; margin-bottom: 4px;">Direct WhatsApp Booking</strong>
+                            <span style="font-size: 0.9rem; color: var(--text-secondary);">Click to initiate secure, direct scheduling</span>
+                        </div>
+                    </a>
+                </div>
+
+                <form class="booking-form" id="inquiryForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location / Timezone</label>
+                        <input type="text" id="location" name="location" required placeholder="e.g., Lagos, WAT or London, GMT">
+                    </div>
+                    <div class="form-group">
+                        <label for="focus">Primary Area of Focus</label>
+                        <select id="focus" name="focus" required>
+                            <option value="" disabled selected>Select an offering</option>
+                            <option value="Personal & Life Counseling">Personal & Life Counseling</option>
+                            <option value="Career & Professional Strategy">Career & Professional Strategy</option>
+                            <option value="High-Performance Life Coaching">High-Performance Life Coaching</option>
+                            <option value="Other / Custom">Other / Custom</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Brief Message</label>
+                        <textarea id="message" name="message" required placeholder="Briefly describe your current challenge or goal..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry via WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">Victor <span>Ugbesia</span></a>
+                    <p>Engineered Guidance for Personal Transformation & Peak Life Optimization.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#mission">Mission</a>
+                    <a href="#offerings">Offerings</a>
+                    <a href="#booking">Book Session</a>                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Victor Ugbesia Coaching & Counseling. All rights reserved.</p>
+                <p style="margin-top: 8px;">Global Handle: <span class="handle">@victorugbesiacoaching</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    if (entry.target.querySelector('.counter')) startCounters();
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        let countersStarted = false;
+        function startCounters() {
+            if (countersStarted) return;
+            countersStarted = true;
+            document.querySelectorAll('.counter').forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.innerText = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCounter();
+            });
+        }
+
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const location = document.getElementById('location').value;
+            const focus = document.getElementById('focus').value;
+            const message = document.getElementById('message').value;
+            const phoneNumber = "2348127297983";             
+            const whatsappMessage = `*New Counseling Inquiry*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Location/Timezone:* ${encodeURIComponent(location)}%0A*Focus Area:* ${encodeURIComponent(focus)}%0A*Message:* ${encodeURIComponent(message)}`;
+            window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, '_blank');
+            this.reset();
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 12, 0.95)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 12, 0.85)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
